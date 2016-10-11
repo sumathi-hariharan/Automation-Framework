@@ -1,5 +1,5 @@
 package arrays;
-
+/* To find sum of array - method 2*/
 import java.util.Scanner;
 
 public class SumOfArray2 {

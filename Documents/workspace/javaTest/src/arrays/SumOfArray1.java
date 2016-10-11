@@ -1,5 +1,5 @@
 package arrays;
-
+/* To find sum of Array Method 1*/
 public class SumOfArray1 {
 
 	public static void main(String[] args) {
