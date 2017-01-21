@@ -1,5 +1,5 @@
 package arrays;
-/* To declare and initialize single dimensional array*/
+/* To declare and initialize two dimensional array*/
 public class TwoDimArray{  
 
 	public static void main(String args[]){  

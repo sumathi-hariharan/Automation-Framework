@@ -1,6 +1,6 @@
 package arrays;
 
-/* To print array with object */
+/* To print an array using object */
 
 public class ArrayObj {
  public static void printArray( int[] anArray){

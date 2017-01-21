@@ -1,5 +1,5 @@
 package arrays;
-
+/* To print a single dimensional array method 1*/
 public class OneDimArray {
 
 	public static void main(String[] args) {

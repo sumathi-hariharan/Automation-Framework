@@ -1,4 +1,5 @@
 package javaTest;
+/* Program for Decimal to Binary conversion */
 
 public class DecimalToBinary {
 		 
