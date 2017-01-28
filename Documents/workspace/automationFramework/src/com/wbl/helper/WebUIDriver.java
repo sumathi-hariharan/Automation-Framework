@@ -9,7 +9,7 @@ import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.safari.SafariDriver;
 
 public class WebUIDriver {
-	private static String LOCATION = System.getProperty("user.dir")+"\\resources\\drivers\\";
+	private static String LOCATION = "/Users/Sumathi/Documents/workspace/automationFramework/resources/drivers/";
 	public static WebDriver getDriver(ConfigUtils config){
 		WebDriver driver = null;
 		
@@ -19,12 +19,14 @@ public class WebUIDriver {
 			driver = new FirefoxDriver();
 			break;
 		case "chrome":
+ 
+			System.setProperty("webdriver.chrome.driver", LOCATION+ "chromedriver");
 			driver = new ChromeDriver();
-			System.setProperty("webdriver.chrome.driver", LOCATION+ "chromedriver.exe");
 			break;
 		case "ie":
 			driver = new InternetExplorerDriver();
 			System.setProperty("webdriver.chrome.driver", LOCATION+ "IEDriverServer.exe");
+			
 			break;
 		case "htmlunit":
 			driver = new HtmlUnitDriver();

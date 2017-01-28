@@ -2,8 +2,11 @@ package com.wbl.page;
 
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
+
+
 import org.openqa.selenium.WebDriver;
+
+import com.wbl.helper.WblBy;
 
 public class HomePage extends PortalPage {
 
@@ -13,17 +16,17 @@ public class HomePage extends PortalPage {
 	}
 	
 	public int countSlides() {
-		return driver.findElements(By.cssSelector(".slides li")).size();
+		return driver.findElements(WblBy.getBy("css-home-slides")).size();
 	}
 	
 	public void loginClick () {
-		driver.findElement(By.linkText("Login")).click();
+		driver.findElement(WblBy.getBy("link-home-Login")).click();
 	}
 	public boolean sectionHeaders() {
-		return driver.findElement(By.cssSelector(".section-heading .line")).isDisplayed();
+		return driver.findElement(WblBy.getBy("css-home-section-headers")).isDisplayed();
 	}
 	
 	public boolean videoElement(){
-		return driver.findElement(By.cssSelector("#vid_1")).isEnabled();
+		return driver.findElement(WblBy.getBy("css-home-video-elm")).isEnabled();
 	}
 }

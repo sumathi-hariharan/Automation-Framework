@@ -1,24 +1,31 @@
 package com.wbl.common;
 
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.AfterSuite;
+
+import org.testng.annotations.BeforeTest;
 
 import com.wbl.helper.ConfigUtils;
+import com.wbl.helper.WblBy;
 import com.wbl.helper.WebUIDriver;
 
 public abstract class CommonTest {
 	
 	public WebDriver driver;
 	
-	@BeforeSuite
-	public void beforeSuite() {
+	@BeforeTest
+	public void beforeTest() {
 		
-		ConfigUtils config = new ConfigUtils("config.properties");
-		
+		ConfigUtils config = new ConfigUtils("configutils.properties");
+		WblBy.loadProperties("locators.properties");
 		driver = WebUIDriver.getDriver(config);
 		
 		driver.get(config.URL);
+	}
+	
+	@AfterSuite
+	public void aftersuite() {
+		driver.close();
 	}
 	
 	

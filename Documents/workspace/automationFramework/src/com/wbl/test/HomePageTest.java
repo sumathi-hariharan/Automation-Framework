@@ -1,7 +1,8 @@
 package com.wbl.test;
 import static org.testng.Assert.*;
+import org.testng.annotations.Test;
 
-import org.junit.Test;
+//import org.junit.Test;
 import org.testng.annotations.BeforeClass;
 
 import com.wbl.common.CommonTest;

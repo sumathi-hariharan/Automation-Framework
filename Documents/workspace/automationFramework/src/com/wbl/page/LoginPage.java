@@ -1,27 +1,30 @@
 package com.wbl.page;
 
-import org.openqa.selenium.By;
+
+
 import org.openqa.selenium.WebDriver;
+
+import com.wbl.helper.WblBy;
 
 	public class LoginPage extends PortalPage {
 
 		public LoginPage(WebDriver driver) {
 		super(driver);
 		}
-	public String login() {
-		driver.findElement(By.id ("username")).sendKeys("Sumathi");
-		driver.findElement(By.id("password")).sendKeys("12345");
-		driver.findElement(By.id("login")).click();
+	public String login(String uname,String pwd) {
+		driver.findElement(WblBy.getBy("id-login-uname")).sendKeys(uname);
+		driver.findElement(WblBy.getBy("id-login-password")).sendKeys(pwd);
+		driver.findElement(WblBy.getBy("id-login-submit")).click();
 		return driver.getTitle();
 	}
 	
 	public int breadCrumbs() {
-		return driver.findElements(By.cssSelector(".breadcrumbs-list li")).size();	
+		return driver.findElements(WblBy.getBy("css-login-bc")).size();	
 	}
 	
 	public boolean forgotPassword() {
-		driver.findElement(By.id("forgotpassword")).click();
-		return driver.findElement(By.id("email")).isDisplayed();
+		driver.findElement(WblBy.getBy("id-login-forgotpassword")).click();
+		return driver.findElement(WblBy.getBy("id-login-email")).isDisplayed();
 	}
 	}
 	

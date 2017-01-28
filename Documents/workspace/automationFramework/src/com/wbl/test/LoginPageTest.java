@@ -1,10 +1,12 @@
 package com.wbl.test;
 
-import org.junit.Test;
+import org.testng.annotations.Test;
 import static org.testng.Assert.*;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.DataProvider;
 
 import com.wbl.common.CommonTest;
+import com.wbl.helper.ExcelUtils;
 import com.wbl.page.LoginPage;
 import com.wbl.pageflow.LoginPageFlow;
 
@@ -18,12 +20,17 @@ public class LoginPageTest extends CommonTest{
 		
 	}
 	
-	@Test
-	public void testLogin() {
-		assertEquals("QA/QE/SDET Training.", lp.login());
+	@DataProvider(name="login-data")
+	public Object[][] loginData() {
+		return ExcelUtils.getExceldata("login", "logindata.xlsx");
 	}
 	
-	@Test
+	@Test(dataProvider="login-data")
+	public void testLogin(String uname,String pwd,String result) {
+		assertEquals(result,lp.login(uname,pwd));
+	}
+	
+	/*@Test
 	public void testBreadCrumbs() {
 		assertEquals(3, lp.breadCrumbs());
 	}
@@ -31,6 +38,6 @@ public class LoginPageTest extends CommonTest{
 	@Test
 	public void testForgotPassword() {
 		assertTrue(lp.forgotPassword());
-	}
+	}*/
 	
 }
